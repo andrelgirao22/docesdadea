@@ -1,3 +1,4 @@
+import { AccountService } from './../services/domain/account.service';
 import { LocalStorageService } from './../services/local-storage.service';
 import { AuthService } from './../services/auth.service';
 import { CategoriaService } from './../services/domain/categoria.service';
@@ -31,6 +32,7 @@ import { ErrorInterceptorProvider } from './interceptors/error-interceptor';
     CategoriaService,
     AuthService,
     LocalStorageService,
+    AccountService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ErrorInterceptorProvider
   ]

@@ -1,12 +1,3 @@
-
-interface UserDTO {
-
-    access_token: string
-    expires_in: number
-
-    account: AccountDTO
-}
-
 interface AccountDTO {
 
     name: string,
@@ -26,4 +17,4 @@ interface Address {
 	complement: string
 }
 
-export {UserDTO, AccountDTO, Address}
+export {AccountDTO, Address}

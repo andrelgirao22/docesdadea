@@ -1,0 +1,23 @@
+import { LocalStorageService } from './../local-storage.service';
+import { API_CONFIG } from './../../config/api.config';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from "rxjs";
+import { AccountDTO } from "../../models/acount.dto";
+
+@Injectable()
+export class AccountService  {
+
+    constructor(public http: HttpClient, public storage: LocalStorageService) {}
+
+    findlByEmail(email: string): Observable<AccountDTO> {
+        
+        let token = this.storage.getLocalUser().access_token
+        let authHeader = new HttpHeaders({'Authorization' : 'Bearer ' + token })
+
+        return this.http.get<AccountDTO>(
+            `${API_CONFIG.baseUrl}/account/${email}`,
+            {'headers' : authHeader})
+    }
+
+}
