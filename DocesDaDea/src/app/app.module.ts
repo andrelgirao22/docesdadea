@@ -1,3 +1,4 @@
+import { AuthInterceptorProvider } from './interceptors/auth-interceptor';
 import { AccountService } from './../services/domain/account.service';
 import { LocalStorageService } from './../services/local-storage.service';
 import { AuthService } from './../services/auth.service';
@@ -29,12 +30,13 @@ import { ErrorInterceptorProvider } from './interceptors/error-interceptor';
   providers: [
     StatusBar,
     SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
     CategoriaService,
+    AuthInterceptorProvider,
+    ErrorInterceptorProvider,
     AuthService,
     LocalStorageService,
     AccountService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ErrorInterceptorProvider
   ]
 })
 export class AppModule {}

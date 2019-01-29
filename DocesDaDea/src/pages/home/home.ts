@@ -11,7 +11,7 @@ import { NavController, IonicPage, MenuController } from 'ionic-angular';
 export class HomePage {
 
   credenciais: CredenciaisDTO = {
-    username : "", 
+    username :"", 
     password: ""
   }
 
@@ -23,10 +23,9 @@ export class HomePage {
 
   login() {
     this.authService.authenticate(this.credenciais).subscribe(res => {
-      console.log(res.body)
       this.authService.successfullLogin(JSON.parse(res.body))
       this.navCtrl.setRoot('CategoriasPage')
-    })
+    }, error => {})
   }
 
   ionViewWillEnter() {
@@ -35,6 +34,13 @@ export class HomePage {
 
   ionViewDidLeave() {
     this.menu.swipeEnable(true)
+  }
+
+  ionViewDidEnter() {
+    this.authService.refreshToken().subscribe(res => {
+      this.authService.successfullLogin(JSON.parse(res.body))
+      this.navCtrl.setRoot('CategoriasPage')
+    }, error => {})
   }
 
 }

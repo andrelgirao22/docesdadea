@@ -22,6 +22,15 @@ export class AuthService {
             })
     }
 
+    refreshToken() {
+        return this.http.post(`${API_CONFIG.baseUrl}/auth/refresh`, 
+            {}, 
+            {
+                observe: "response",
+                responseType: "text"
+            })
+    }
+
     successfullLogin(obj: TokenDTO) {
         obj.email = this.jwtHelper.decodeToken(obj.access_token).sub
         this.storageService.setLocalUser(obj)

@@ -11,13 +11,7 @@ export class AccountService  {
     constructor(public http: HttpClient, public storage: LocalStorageService) {}
 
     findlByEmail(email: string): Observable<AccountDTO> {
-        
-        let token = this.storage.getLocalUser().access_token
-        let authHeader = new HttpHeaders({'Authorization' : 'Bearer ' + token })
-
-        return this.http.get<AccountDTO>(
-            `${API_CONFIG.baseUrl}/account/${email}`,
-            {'headers' : authHeader})
+        return this.http.get<AccountDTO>(`${API_CONFIG.baseUrl}/account/${email}`)
     }
 
 }

@@ -2,7 +2,7 @@ interface AccountDTO {
 
     name: string,
 	email: string,
-	imageUrl: string
+	imageUrl?: string
     
     address: Address,
 }
