@@ -31,9 +31,14 @@ export class AuthService {
             })
     }
 
-    successfullLogin(obj: TokenDTO) {
-        obj.email = this.jwtHelper.decodeToken(obj.access_token).sub
-        this.storageService.setLocalUser(obj)
+    successfullLogin(obj: TokenDTO): boolean {
+        if(obj.access_token) {
+            obj.email = this.jwtHelper.decodeToken(obj.access_token).sub
+            this.storageService.setLocalUser(obj)
+            return true
+        }
+
+        return false
     } 
 
     logout() {

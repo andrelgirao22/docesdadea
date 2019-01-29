@@ -38,8 +38,9 @@ export class HomePage {
 
   ionViewDidEnter() {
     this.authService.refreshToken().subscribe(res => {
-      this.authService.successfullLogin(JSON.parse(res.body))
-      this.navCtrl.setRoot('CategoriasPage')
+      if(this.authService.successfullLogin(JSON.parse(res.body))) {
+        this.navCtrl.setRoot('CategoriasPage')
+      }
     }, error => {})
   }
 
