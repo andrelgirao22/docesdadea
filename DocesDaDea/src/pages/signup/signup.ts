@@ -1,6 +1,6 @@
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 
 @IonicPage()
@@ -20,13 +20,15 @@ export class SignupPage {
       this.formGroup = this.formBuilder.group({
         name: ['Joao', [Validators.required]],
         email: ['joao@gmail.com', [Validators.required, Validators.email]],
-        addressName: ['Rua x', [Validators.required]],
-        addressNumber: ['Rua x', [Validators.required]],
-        neighborhood: ['Bairro x', [Validators.required]],
-        postalCode: ['60730285', [Validators.required]],
-        city: [null, [Validators.required]],
-        state: [null, [Validators.required]],
-        complement: ['', [Validators.required]]
+        address: new FormGroup({
+          addressName: new FormControl('Rua x', [Validators.required]),
+          addressNumber:new FormControl('Rua x', [Validators.required]),
+          neighborhood: new FormControl('Bairro x', [Validators.required]),
+          postalCode: new FormControl('60730285', [Validators.required]),
+          city: new FormControl(null, [Validators.required]),
+          state: new FormControl(null, [Validators.required]),
+          complement: new FormControl('', [Validators.required])
+        })
       })
   }
 
