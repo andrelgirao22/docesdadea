@@ -1,3 +1,4 @@
+import { StateService } from './../../services/domain/state.service';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
@@ -15,7 +16,8 @@ export class SignupPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public formBuilder: FormBuilder) {
+    public formBuilder: FormBuilder,
+    public stateService: StateService) {
 
       this.formGroup = this.formBuilder.group({
         name: ['Joao', [Validators.required]],
