@@ -13,7 +13,6 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ErrorInterceptorProvider } from './interceptors/error-interceptor';
-import { StateService } from '../services/domain/state.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +35,6 @@ import { StateService } from '../services/domain/state.service';
     AuthInterceptorProvider,
     ErrorInterceptorProvider,
     AuthService,
-    StateService,
     LocalStorageService,
     AccountService,
   ]

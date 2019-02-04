@@ -44,17 +44,15 @@
   
       <ion-item>
         <ion-label stacked>Estado*</ion-label>
-        <ion-select formControlName="state" (ionChange)="updateCities()">
-          <ion-option value="1">Minas Gerais</ion-option>
-          <ion-option value="2">Ceara</ion-option>
+        <ion-select formControlName="state" (ionChange)="updateCidades()">
+          <ion-option *ngFor="let estado of estados; first as f" [value]="estado" [selected]="f">{{ estado.name }}</ion-option>
         </ion-select>
       </ion-item>
       
       <ion-item>
           <ion-label stacked>Cidade*</ion-label>
           <ion-select formControlName="city">
-            <ion-option value="1">Uberlandia</ion-option>
-            <ion-option value="2">Fortaleza</ion-option>
+            <ion-option *ngFor="let cidade of cidades " [value]="cidade.id">{{ cidade.name }}</ion-option>
           </ion-select>
       </ion-item>
   
@@ -65,9 +63,6 @@
     </div>
 
     <button ion-button block type="submit">Criar conta</button>
-    <ion-item>
-      {{ formGroup.value | json }}
-    </ion-item>
   </form>
 
 
