@@ -1,3 +1,5 @@
+import { StateDTO } from './state.dto';
+import { CityDTO } from './city.dto';
 interface AccountDTO {
 
     name: string,
@@ -12,8 +14,8 @@ interface Address {
 	addressNumber: string
 	neighborhood: string
 	postalCode: string
-	city: string
-	state: string
+	city: CityDTO
+	state: StateDTO
 	complement: string
 }
 

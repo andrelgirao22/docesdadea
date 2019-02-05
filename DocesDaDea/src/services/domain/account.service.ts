@@ -14,4 +14,13 @@ export class AccountService  {
         return this.http.get<AccountDTO>(`${API_CONFIG.baseUrl}/account/${email}`)
     }
 
+    insert(obj: AccountDTO) {
+        return this.http.post(`${API_CONFIG.baseUrl}/account`, 
+            obj, {
+                observe: 'response',
+                responseType: 'text'
+            }
+        )
+    }
+
 }
