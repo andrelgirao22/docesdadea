@@ -25,8 +25,8 @@ export class ItemPage {
     }, error =>{})
   }
 
-  showDetail() {
-    this.navCtrl.push('ItemDetailPage')
+  showDetail(item_id: string) {
+    this.navCtrl.push('ItemDetailPage', {item_id: item_id})
   }
 
 }

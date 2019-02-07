@@ -11,4 +11,8 @@ export class ItemService {
         return this.http.get(`${API_CONFIG.baseUrl}/item/category/${categoria_id}`)
     }
 
+    findById(item_id: string): any {
+        return this.http.get(`${API_CONFIG.baseUrl}/item/${item_id}`)
+    }
+
 }
