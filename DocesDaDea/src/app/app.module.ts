@@ -1,3 +1,4 @@
+import { CartService } from './../services/domain/cart.service';
 import { ItemService } from './../services/domain/item.service';
 import { AuthInterceptorProvider } from './interceptors/auth-interceptor';
 import { AccountService } from './../services/domain/account.service';
@@ -39,6 +40,7 @@ import { ErrorInterceptorProvider } from './interceptors/error-interceptor';
     LocalStorageService,
     AccountService,
     ItemService,
+    CartService
   ]
 })
 export class AppModule {}
